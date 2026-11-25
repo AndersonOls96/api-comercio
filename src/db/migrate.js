@@ -4,7 +4,7 @@ import { db, pool } from './db.js';
 
 try {
   await migrate(db, {
-    migrationsFolder: fileURLToPath(new URL('../drizzle/', import.meta.url)),
+    migrationsFolder: fileURLToPath(new URL('./migrations/', import.meta.url)),
   });
   console.log('Migrations aplicadas.');
 } finally {

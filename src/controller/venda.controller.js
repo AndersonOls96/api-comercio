@@ -1,7 +1,7 @@
 import { asc, eq, inArray } from 'drizzle-orm';
-import { db } from '../db.js';
-import { produtos } from '../models/produto.model.js';
-import { itensVenda, vendas } from '../models/venda.model.js';
+import { db } from '../db/db.js';
+import { produtos } from '../model/produto.model.js';
+import { itensVenda, vendas } from '../model/venda.model.js';
 import { inteiroPositivo, MAX_INTEIRO, objeto } from './validacao.js';
 
 const camposItem = new Set(['produtoId', 'quantidade']);

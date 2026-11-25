@@ -1,6 +1,6 @@
 import { asc, eq } from 'drizzle-orm';
-import { db } from '../db.js';
-import { produtos } from '../models/produto.model.js';
+import { db } from '../db/db.js';
+import { produtos } from '../model/produto.model.js';
 import { inteiroPositivo, nomeValido, validarCampos } from './validacao.js';
 
 const regras = { nome: nomeValido, precoCentavos: inteiroPositivo, categoriaId: inteiroPositivo };

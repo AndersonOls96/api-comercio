@@ -1,6 +1,6 @@
 import { asc, eq } from 'drizzle-orm';
-import { db } from '../db.js';
-import { categorias } from '../models/categoria.model.js';
+import { db } from '../db/db.js';
+import { categorias } from '../model/categoria.model.js';
 import { nomeValido, validarCampos } from './validacao.js';
 
 const regras = { nome: nomeValido };

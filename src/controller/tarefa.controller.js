@@ -1,6 +1,6 @@
 import { asc, eq } from 'drizzle-orm';
-import { db } from '../db.js';
-import { tarefas } from '../models/tarefa.model.js';
+import { db } from '../db/db.js';
+import { tarefas } from '../model/tarefa.model.js';
 
 export function validarTarefa(req, res, next) {
   const body = req.body;

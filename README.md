@@ -35,7 +35,7 @@ curl -X POST http://localhost:3000/tarefas \
 
 ## Deploy no Render
 
-1. Envie o conteúdo do projeto para um repositório, incluindo `.env-example`, `package-lock.json` e a pasta `drizzle/`.
+1. Envie o conteúdo do projeto para um repositório, incluindo `.env-example`, `package-lock.json` e a pasta `src/db/migrations/`.
 2. Crie uma instância do Render Postgres e um Web Service com runtime Node na mesma região.
 3. No Web Service, defina `DATABASE_URL` com a **Internal Database URL** do banco. O Render fornece `PORT`.
 4. Configure **Build Command** como `npm ci`, **Start Command** como `npm start` e **Health Check Path** como `/health`.
@@ -45,11 +45,11 @@ O CRUD de exemplo é público e não tem autenticação. Use dados de teste ao e
 
 ## Alterar o esquema
 
-Edite o model correspondente em `src/models/`, execute `npm run db:generate` e inclua a nova migration gerada no repositório. Para aplicá-la localmente, execute `npm run db:migrate`.
+Edite o model correspondente em `src/model/`, execute `npm run db:generate` e inclua a nova migration gerada no repositório. Para aplicá-la localmente, execute `npm run db:migrate`.
 
 ## Módulos de comércio
 
-O servidor registra as rotas em `src/routes/`. Os controllers em `src/controllers/` tratam as requisições. Os models em `src/models/` definem o esquema do PostgreSQL.
+O arquivo `server.js` registra as rotas em `src/route/`. Os controllers em `src/controller/` tratam as requisições. Os models em `src/model/` definem o esquema do PostgreSQL.
 
 | Recurso | Coleção | Por ID |
 | --- | --- | --- |

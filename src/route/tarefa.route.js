@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import * as controller from '../controllers/tarefa.controller.js';
+import * as controller from '../controller/tarefa.controller.js';
 import { validarId } from './id.js';
 
 const router = Router();

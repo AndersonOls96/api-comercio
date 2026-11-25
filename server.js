@@ -1,10 +1,10 @@
 import express from 'express';
 import { sql } from 'drizzle-orm';
-import { db, pool } from './db.js';
-import tarefaRoutes from './routes/tarefa.route.js';
-import categoriaRoutes from './routes/categoria.route.js';
-import produtoRoutes from './routes/produto.route.js';
-import vendaRoutes from './routes/venda.route.js';
+import { db, pool } from './src/db/db.js';
+import tarefaRoutes from './src/route/tarefa.route.js';
+import categoriaRoutes from './src/route/categoria.route.js';
+import produtoRoutes from './src/route/produto.route.js';
+import vendaRoutes from './src/route/venda.route.js';
 
 const app = express();
 app.disable('x-powered-by');
