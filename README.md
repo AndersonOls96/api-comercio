@@ -1,4 +1,4 @@
-# API de tarefas
+# API de comércio
 
 API REST em JavaScript com Node.js 24, Express 5, Drizzle ORM e PostgreSQL.
 
@@ -45,4 +45,30 @@ O CRUD de exemplo é público e não tem autenticação. Use dados de teste ao e
 
 ## Alterar o esquema
 
-Edite `src/schema.js`, execute `npm run db:generate` e inclua a nova migration gerada no repositório. Para aplicá-la localmente, execute `npm run db:migrate`.
+Edite o model correspondente em `src/models/`, execute `npm run db:generate` e inclua a nova migration gerada no repositório. Para aplicá-la localmente, execute `npm run db:migrate`.
+
+## Módulos de comércio
+
+O servidor registra as rotas em `src/routes/`. Os controllers em `src/controllers/` tratam as requisições. Os models em `src/models/` definem o esquema do PostgreSQL.
+
+| Recurso | Coleção | Por ID |
+| --- | --- | --- |
+| Categorias | `GET /categorias`, `POST /categorias` | `GET`, `PATCH` e `DELETE /categorias/:id` |
+| Produtos | `GET /produtos`, `POST /produtos` | `GET`, `PATCH` e `DELETE /produtos/:id` |
+| Vendas | `GET /vendas`, `POST /vendas` | `GET /vendas/:id` |
+
+Crie a categoria primeiro e use seu ID ao cadastrar o produto. Use os IDs retornados pela API nos exemplos abaixo.
+
+```json
+{ "nome": "Papelaria" }
+```
+
+```json
+{ "nome": "Caderno", "precoCentavos": 1590, "categoriaId": 1 }
+```
+
+```json
+{ "itens": [{ "produtoId": 1, "quantidade": 2 }] }
+```
+
+Os valores monetários são inteiros em centavos. O servidor calcula o total da venda e grava os preços unitários dos itens em uma única transação. A consulta por ID inclui os itens. Cada produto pode aparecer uma vez por venda. Categorias em uso e produtos com vendas registradas retornam HTTP 409 na exclusão.
