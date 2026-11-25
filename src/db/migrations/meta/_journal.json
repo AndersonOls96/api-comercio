@@ -15,6 +15,13 @@
       "when": 1795635646884,
       "tag": "0001_lovely_ozymandias",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1795636200770,
+      "tag": "0002_remover_tarefas",
+      "breakpoints": true
     }
   ]
 }

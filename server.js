@@ -1,7 +1,6 @@
 import express from 'express';
 import { sql } from 'drizzle-orm';
 import { db, pool } from './src/db/db.js';
-import tarefaRoutes from './src/route/tarefa.route.js';
 import categoriaRoutes from './src/route/categoria.route.js';
 import produtoRoutes from './src/route/produto.route.js';
 import vendaRoutes from './src/route/venda.route.js';
@@ -19,7 +18,6 @@ app.get('/health', async (_req, res) => {
   }
 });
 
-app.use('/tarefas', tarefaRoutes);
 app.use('/categorias', categoriaRoutes);
 app.use('/produtos', produtoRoutes);
 app.use('/vendas', vendaRoutes);

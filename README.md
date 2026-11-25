@@ -16,22 +16,7 @@ npm run dev
 
 A API fica disponível em `http://localhost:3000` por padrão.
 
-| Método | Rota | Operação |
-| --- | --- | --- |
-| GET | `/health` | Verifica a conexão com o PostgreSQL |
-| GET | `/tarefas` | Lista as tarefas |
-| POST | `/tarefas` | Cria uma tarefa |
-| GET | `/tarefas/:id` | Consulta uma tarefa |
-| PATCH | `/tarefas/:id` | Atualiza os campos enviados |
-| DELETE | `/tarefas/:id` | Exclui uma tarefa |
-
-```sh
-curl -X POST http://localhost:3000/tarefas \
-  -H 'Content-Type: application/json' \
-  -d '{"titulo":"Configurar o Render"}'
-```
-
-`titulo` é obrigatório na criação e aceita até 200 caracteres. `concluida` é um booleano opcional, com valor inicial `false`.
+Use `GET /health` para verificar a conexão com o PostgreSQL.
 
 ## Deploy no Render
 
@@ -42,6 +27,8 @@ curl -X POST http://localhost:3000/tarefas \
 5. Configure **Pre-Deploy Command** como `npm run db:migrate` se o plano oferecer esse campo. Caso contrário, use `npm run db:migrate && npm start` no **Start Command** para uma implantação com uma única instância.
 
 O CRUD de exemplo é público e não tem autenticação. Use dados de teste ao expor o serviço.
+
+A migration que remove o módulo de tarefas apaga a tabela `tarefas` e seus dados quando aplicada.
 
 ## Alterar o esquema
 
